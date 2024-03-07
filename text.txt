@@ -1,0 +1,22 @@
+username : sheefa
+email : sheefa1911@gmail.com
+password : sheefashaikh
+
+from django.db import models
+
+# Create your models here.
+
+#code related to database
+
+class Product(models.Model):
+    CAT=((1,'bestseller'),(2,'drinks'),(3,'food'),(4,'merchandise'),(5,'coffee_at_home'),(6,'ready_to_eat'))
+    name=models.CharField(max_length=50, verbose_name="product_name")
+    price=models.FloatField()
+    pdetails=models.CharField(max_length=100, verbose_name="product details")
+    cat=models.IntegerField(verbose_name="category", choices=CAT)
+    is_active=models.BooleanField(default=True , verbose_name="Available")
+    pimage = models.ImageField(upload_to= 'image')
+     
+    
+    # def __str__(self):
+    #     return self.name 
